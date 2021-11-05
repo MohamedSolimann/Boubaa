@@ -1,6 +1,6 @@
 const express = require("express");
 const Router = express.Router();
-const prodcutModel = require("../../models/product/product.schema");
+const productModel = require("../../models/product/product.schema");
 
 Router.get("/:category", async (req, res) => {
   let category = req.params.category;

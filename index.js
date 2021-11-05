@@ -3,14 +3,14 @@ const app = express();
 const cors = require("cors");
 const config = require("config");
 const mongoose = require("mongoose");
-const RestApis = require("./routes/products/product.RestApis");
+const productRestApis = require("./routes/products/product.RestApis");
 const productsByCategory = require("./routes/products/index");
 
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
-app.use("/products", RestApis);
-// app.use("products/category", productsByCategory);
+app.use("/:category", productsByCategory);
+app.use("/products", productRestApis);
 mongoose.connect(
   `mongodb://${config.DB.host}:${config.DB.port}/${config.DB.dbName}`,
   { useNewUrlParser: true, useUnifiedTopology: true },
