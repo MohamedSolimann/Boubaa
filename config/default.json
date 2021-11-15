@@ -6,5 +6,9 @@
     "host": "localhost",
     "port": 27017,
     "dbName": "boubaa"
+  },
+  "twilio": {
+    "AccessToken": "eb0fe083ece5d305f5e3aeeca63b313c",
+    "AccountSid": "AC879de637148f47fd906515dc7fec760b"
   }
 }

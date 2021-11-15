@@ -32,9 +32,17 @@ var productSchema = new mongoose.Schema({
   deletedDate: {
     type: Date,
   },
+  code: { type: String, require: true },
   category: {
     type: String,
-    enum: ["Bag", "Accessories", "Clothes", "Chinese Gold", "Scarfs"],
+    enum: [
+      "Bags",
+      "Accessories",
+      "Clothes",
+      "Chinese Gold",
+      "Scarfs",
+      "Shawls",
+    ],
   },
 });
 
