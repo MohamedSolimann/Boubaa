@@ -10,7 +10,7 @@ const {
 
 //CRUD Restful apis
 
-Router.post("/", productValidation, catchValidationErrors, async (req, res) => {
+Router.post("/", async (req, res) => {
   const { name, price, desc, stock, status, image, category } = req.body;
   try {
     let newProduct = await new productModel({
@@ -29,11 +29,15 @@ Router.post("/", productValidation, catchValidationErrors, async (req, res) => {
     res.status(500).json({ message: "Error", error });
   }
 });
-Router.get("/", async (req, res) => {
+Router.get("/:page/:limit", async (req, res) => {
+  const { page, limit } = req.params;
   try {
     let products = await productModel.find({ deleted: null }).lean();
     if (products) {
-      res.status(200).json({ message: "Success", data: products });
+      res.status(200).json({
+        message: "Success",
+        data: products.splice((page - 1) * 2, limit),
+      });
     } else {
       res.status(401).json({ message: "No Products Found!" });
     }

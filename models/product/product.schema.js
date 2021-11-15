@@ -8,7 +8,6 @@ var productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   price: {
     type: String,
@@ -35,7 +34,7 @@ var productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["Bag", "Accessories", "Clothes"],
+    enum: ["Bag", "Accessories", "Clothes", "Chinese Gold", "Scarfs"],
   },
 });
 
