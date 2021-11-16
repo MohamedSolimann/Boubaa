@@ -43,4 +43,13 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+router.get("/signout", (req, res) => {
+  try {
+    res.clearCookie("token");
+    res.status(201).json({ message: "Success" });
+  } catch (error) {
+    res.status().json({ message: "Error" });
+  }
+});
+
 module.exports = router;
