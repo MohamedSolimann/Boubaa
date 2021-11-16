@@ -1,25 +1,29 @@
 function updatedRequestBody(req) {
-  const { price, stock, desc, status, deleted, image, category } = req.body;
+  const { price, stock, desc, code, status, deletedDate, image, category } =
+    req.body;
   let updatedBody = {};
-  if (price !== null) {
+  if (price !== null && price !== "") {
     updatedBody.price = price;
   }
-  if (stock !== null) {
+  if (stock !== null && stock !== "") {
     updatedBody.stock = stock;
   }
-  if (desc !== null) {
+  if (desc !== null && desc !== "") {
     updatedBody.desc = desc;
   }
-  if (status !== null) {
+  if (status !== null && status !== "") {
     updatedBody.status = status;
   }
-  if (deletedDate !== null) {
-    updatedBody.deleted = deleted;
+  if (deletedDate !== null && deletedDate !== "") {
+    updatedBody.deletedDate = deletedDate;
   }
-  if (image !== null) {
+  if (image !== null && image !== "") {
     updatedBody.image = image;
   }
-  if (category !== null) {
+  if (code !== null && code !== "") {
+    updatedBody.code = code;
+  }
+  if (category !== null && category !== "") {
     updatedBody.category = category;
   }
   return updatedBody;
