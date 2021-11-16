@@ -5,10 +5,6 @@ var productSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     require: true,
   },
-  name: {
-    type: String,
-    required: true,
-  },
   price: {
     type: String,
     required: true,

@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
       total,
       orderDate,
     });
-    sendMessage(orderInfoAsString);
+    // sendMessage(orderInfoAsString);
     res.status(201).json({ message: "Success", data: newOrder });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });

@@ -11,11 +11,10 @@ const {
 //CRUD Restful apis
 
 Router.post("/", async (req, res) => {
-  const { name, price, desc, stock, status, image, category } = req.body;
+  const { price, desc, stock, status, image, category } = req.body;
   try {
     let newProduct = await new productModel({
       _id: mongoose.Types.ObjectId(),
-      name,
       price,
       desc,
       stock,

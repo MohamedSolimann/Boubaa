@@ -1,10 +1,6 @@
 function updatedRequestBody(req) {
-  const { name, price, stock, desc, status, deleted, image, category } =
-    req.body;
+  const { price, stock, desc, status, deleted, image, category } = req.body;
   let updatedBody = {};
-  if (name !== null) {
-    updatedBody.name = name;
-  }
   if (price !== null) {
     updatedBody.price = price;
   }
