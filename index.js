@@ -10,6 +10,7 @@ const userRouter = require("./routes/user/index");
 
 app.use(express.json());
 app.use(cors({ origin: config.get("origin"), credentials: true }));
+console.log(config.get('origin'))
 app.use("/products/category", productsByCategoryRouter);
 app.use("/products", productRestApisRouter);
 app.use("/order", orderRouter);
