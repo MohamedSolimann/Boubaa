@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const app = express();
 const cors = require("cors");
 const config = require("config");
@@ -10,13 +11,15 @@ const userRouter = require("./routes/user/index");
 
 app.use(express.json());
 app.use(cors({ origin: config.get("origin"), credentials: true }));
-console.log(config.get('origin'))
+console.log(config.get("origin"));
 app.use("/products/category", productsByCategoryRouter);
 app.use("/products", productRestApisRouter);
 app.use("/order", orderRouter);
 app.use("/user", userRouter);
 mongoose.connect(
-  `mongodb://${config.get('DB.host')}:${config.get('DB.port')}/${config.get('DB.dbName')}`,
+  `mongodb://${config.get("DB.host")}:${config.get("DB.port")}/${config.get(
+    "DB.dbName"
+  )}`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("db connected");
@@ -25,7 +28,7 @@ mongoose.connect(
 
 const dbConnection = mongoose.connection;
 dbConnection.once("open", () => {
-  app.listen(config.get('server.port'), () => {
+  app.listen(config.get("server.port"), () => {
     console.log("server is running");
   });
 });
