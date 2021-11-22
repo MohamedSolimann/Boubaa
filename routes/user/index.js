@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -30,7 +31,7 @@ router.post("/signin", async (req, res) => {
       const validPassword = bcrypt.compareSync(password, encryptedPassword);
       if (validPassword) {
         const token = jwt.sign({ id: user._id }, config.secret);
-        res.cookie("token", token);
+        res.cookie("token", token, { sameSite: "none" });
         res.status(200).json({ message: "Success" });
       } else {
         res.status(401).json({ message: "Incorrect Password" });
