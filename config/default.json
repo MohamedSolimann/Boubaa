@@ -11,5 +11,6 @@
     "AccessToken": "eb0fe083ece5d305f5e3aeeca63b313c",
     "AccountSid": "AC879de637148f47fd906515dc7fec760b"
   },
-  "secret": "secret"
+  "secret": "secret",
+  "origin" :"http://localhost:4200"
 }
