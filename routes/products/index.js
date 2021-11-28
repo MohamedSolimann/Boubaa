@@ -26,4 +26,18 @@ Router.get("/:category/:page/:limit", async (req, res) => {
   }
 });
 
+Router.get("/:category", async (req, res) => {
+  let { category, page, limit } = req.params;
+
+  try {
+    let products = await productModel.find({
+      category,
+      deletedDate: undefined,
+    });
+      res.status(200).json({ message: "Success", data: products });
+    
+  } catch (error) {
+    res.status(500).json({ message: "Error" });
+  }
+});
 module.exports = Router;
