@@ -1,6 +1,6 @@
 {
   "server": {
-    "port": 8080
+    "port": 80
   },
   "DB": {
     "host": "localhost",
@@ -12,5 +12,5 @@
     "AccountSid": "AC879de637148f47fd906515dc7fec760b"
   },
   "secret": "secret",
-  "origin" :"http://localhost:4200"
+  "origin": "http://localhost:4200"
 }
