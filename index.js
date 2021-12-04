@@ -14,6 +14,7 @@ app.use("/products/category", productsByCategoryRouter);
 app.use("/products", productRestApisRouter);
 app.use("/order", orderRouter);
 app.use("/user", userRouter);
+app.use("/health", (req, res) => res.end("true"));
 mongoose.connect(
   `mongodb://${config.get("DB.host")}:${config.get("DB.port")}/${config.get(
     "DB.dbName"
