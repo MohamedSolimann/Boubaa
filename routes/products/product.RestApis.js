@@ -27,7 +27,7 @@ Router.post("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error", error });
   }
-});
+}); 
 Router.get("/:page/:limit", async (req, res) => {
   const { page, limit } = req.params;
   try {
