@@ -11,7 +11,6 @@ const orderModel = require("../../models/order/order.schema");
 router.post("/", async (req, res) => {
   const { username, mobile, address, products, total } = req.body;
   let orderDate = Date();
-  orderDate = orderDate.slice(0, 208)
   try {
     let newOrder = new orderModel({
       _id: mongoose.Types.ObjectId(),
@@ -40,9 +39,9 @@ router.post("/", async (req, res) => {
 });
 
 const getProductCodes = (arr) => {
-  let productsCodes = "";
+  let productsCodes =""
   arr.forEach((obj) => {
-   productsCode = productsCodes.concat(obj.code);
+   productsCodes = productsCodes.concat(obj.code);
   });
   return productsCodes;
 };
