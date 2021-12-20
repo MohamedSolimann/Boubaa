@@ -22,7 +22,6 @@ router.post("/", async (req, res) => {
       orderDate,
     });
     newOrder.save();
-    let productsCodes =""
     const productCodes = getProductCodes(products);
     const orderInfoAsString = getOrderInfoAsString({
       username,
@@ -40,10 +39,11 @@ router.post("/", async (req, res) => {
 });
 
 const getProductCodes = (arr) => {
+  let productsCodes = [];
   arr.forEach((obj) => {
-   productsCodes = productsCodes.concat(obj.code);
+     productsCodes.push(obj.code);
   });
-  return productsCodes;
+  return productsCodes.join("-");
 };
 const getOrderInfoAsString = (orderinfo) => {
   let orderInfoAsString = `username : ${orderinfo.username}`
