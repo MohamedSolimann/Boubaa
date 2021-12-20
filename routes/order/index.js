@@ -54,7 +54,7 @@ const getOrderInfoAsString = (orderinfo) => {
     .concat(`/ appartment : ${orderinfo.address.appartment}`)
     .concat(`/ products : ${orderinfo.productCodes}`)
     .concat(`/ total : ${orderinfo.total}`)
-    .concat(`/ orderDate : ${orderinfo.orderDate}`);
+    .concat(`/ orderDate : ${orderinfo.orderDate.slice(0,208)}`);
   return orderInfoAsString;
 };
 const sendMessage = (orderInfo) => {
