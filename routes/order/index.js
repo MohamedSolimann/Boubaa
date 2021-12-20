@@ -52,7 +52,6 @@ const getOrderInfoAsString = (orderinfo) => {
     .concat(`/ street : ${orderinfo.address.street}`)
     .concat(`/ floor : ${orderinfo.address.floor}`)
     .concat(`/ appartment : ${orderinfo.address.appartment}`)
-    .concat(`/ mobile : ${orderinfo.mobile}`)
     .concat(`/ products : ${orderinfo.productCodes}`)
     .concat(`/ total : ${orderinfo.total}`)
     .concat(`/ orderDate : ${orderinfo.orderDate}`);
@@ -65,6 +64,11 @@ const sendMessage = (orderInfo) => {
       from: "+12055396124",
       to: "+201030041666",
     })
-    .then((message) => console.log(message.sid));
+    .then((message) => {
+      console.log(message.sid);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 module.exports = router;
