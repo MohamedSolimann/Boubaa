@@ -9,8 +9,8 @@ const productRestApisRouter = require("./routes/products/product.RestApis");
 const productsByCategoryRouter = require("./routes/products/index");
 const orderRouter = require("./routes/order/index");
 const userRouter = require("./routes/user/index");
-const privateKey = fs.readFileSync('./cert/private.pem')
-const cert = fs.readFileSync('./cert/certificate.pem')
+// const privateKey = fs.readFileSync('./cert/private.key')
+// const cert = fs.readFileSync('./cert/certificate.crt')
 
 app.use(express.json());
 app.use(cors({ origin: config.get("origin"), credentials: true }));
@@ -32,11 +32,11 @@ app.get('/',(req,res)=>{
   res.send('running')
 })
 const dbConnection = mongoose.connection;
-https.createServer({key:privateKey,cert:cert},app).listen(8080)
+// https.createServer({key:privateKey,cert:cert},app).listen(8080)
 
 
-// dbConnection.once("open", () => {
-//   app.listen(config.get("server.port"), () => {
-//     console.log("server is running");
-//   });
-// });
+dbConnection.once("open", () => {
+  app.listen(config.get("server.port"), () => {
+    console.log("server is running");
+  });
+});
