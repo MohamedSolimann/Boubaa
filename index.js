@@ -9,8 +9,8 @@ const productRestApisRouter = require("./routes/products/product.RestApis");
 const productsByCategoryRouter = require("./routes/products/index");
 const orderRouter = require("./routes/order/index");
 const userRouter = require("./routes/user/index");
-const privateKey = fs.readFileSync('./cert/private.key')
-const cert = fs.readFileSync('./cert/certificate.crt')
+// const privateKey = fs.readFileSync('./cert/private.key')
+// const cert = fs.readFileSync('./cert/certificate.crt')
 
 app.use(express.json());
 app.use(cors({ origin: config.get("origin"), credentials: true }));
