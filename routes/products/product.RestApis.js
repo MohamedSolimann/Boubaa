@@ -11,7 +11,7 @@ const {
 //CRUD Restful apis
 
 Router.post("/", async (req, res) => {
-  const { price, desc, stock, status, image, category } = req.body;
+  const { price, desc, stock, status, image, category, priceOnSale } = req.body;
   try {
     let newProduct = await new productModel({
       _id: mongoose.Types.ObjectId(),
@@ -21,13 +21,14 @@ Router.post("/", async (req, res) => {
       status,
       image,
       category,
+      priceOnSale,
     });
     await newProduct.save();
     res.status(201).json({ message: "Created Successfuly", data: newProduct });
   } catch (error) {
     res.status(500).json({ message: "Error", error });
   }
-}); 
+});
 Router.get("/:page/:limit", async (req, res) => {
   const { page, limit } = req.params;
   try {

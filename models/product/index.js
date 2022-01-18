@@ -1,9 +1,21 @@
 function updatedRequestBody(req) {
-  const { price, stock, desc, code, status, deletedDate, image, category } =
-    req.body;
+  const {
+    price,
+    stock,
+    desc,
+    code,
+    status,
+    deletedDate,
+    priceOnSale,
+    image,
+    category,
+  } = req.body;
   let updatedBody = {};
   if (price !== null && price !== "") {
     updatedBody.price = price;
+  }
+  if (priceOnSale !== null && priceOnSale !== "") {
+    updatedBody.priceOnSale = priceOnSale;
   }
   if (stock !== null && stock !== "") {
     updatedBody.stock = stock;

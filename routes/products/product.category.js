@@ -27,26 +27,25 @@ Router.get("/:category/:page/:limit", async (req, res) => {
 });
 
 Router.get("/:category", async (req, res) => {
-  let { category} = req.params;
+  let { category } = req.params;
 
   try {
     let products = await productModel.find({
       category,
       deletedDate: undefined,
-    })
-    products.sort((a,b)=> b.code - a.code )
+    });
+    products.sort((a, b) => b.code - a.code);
     res.status(200).json({ message: "Success", data: products });
-    
   } catch (error) {
     res.status(500).json({ message: "Error" });
   }
 });
+
 Router.post("/", async (req, res) => {
-  let arrayOfObjects = req.body
+  let arrayOfObjects = req.body;
   try {
-    let products = await productModel.insertMany(arrayOfObjects)
-      res.status(200).json({ message: "Success", data: products });
-    
+    let products = await productModel.insertMany(arrayOfObjects);
+    res.status(200).json({ message: "Success", data: products });
   } catch (error) {
     res.status(500).json({ message: "Error" });
   }

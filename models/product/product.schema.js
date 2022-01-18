@@ -9,6 +9,9 @@ var productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  priceOnSale: {
+    type: String,
+  },
   image: {
     type: String,
     required: true,
